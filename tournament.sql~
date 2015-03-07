@@ -8,6 +8,9 @@
 --
 -- The project was adapted to pass the basic version tests,  but without the extra features being completely removed.
 
+
+CREATE DATABASE tournament;
+
 -- The table tournaments contains the name of each tournament.
 
 CREATE TABLE tournaments (
