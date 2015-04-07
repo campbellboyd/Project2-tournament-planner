@@ -35,8 +35,8 @@ def createTournament(tournamentName):
     
     if count != 0:  # indicates tournament name already exists
         # tidy up
-        cur.close
-        DB.close
+        cur.close()
+        DB.close()
         
         returnStr = "ERROR - name already exists, please try again."
         return returnStr
@@ -54,8 +54,8 @@ def createTournament(tournamentName):
     tournamentId = str(cur.fetchone()[0])
     
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
     returnStr = tournamentName + " added, id is " +  tournamentId
     return returnStr
 
@@ -73,8 +73,8 @@ def selectTournament(selectId):
     cur.execute(SQL, data )
     row = cur.fetchall()
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
     
     if row == []:
         returnStr = "ERROR " + str(selectId) + " not found!"
@@ -101,8 +101,8 @@ def deleteMatches(tournamentId=1):
     returnStr = cur.statusmessage
     DB.commit()
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
 
     return returnStr
 
@@ -145,8 +145,8 @@ def resetPlayersAndMatches():
     DB.commit()  
        
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
 
     return returnStr
 
@@ -167,8 +167,8 @@ def deletePlayers(tournamentId=1):
     returnStr = cur.statusmessage
     DB.commit()
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
     
     resetPlayersAndMatches()
 
@@ -188,8 +188,8 @@ def countPlayers(tournamentId=1):
     player_count = cur.fetchone()[0]
     
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
     
     return player_count
 
@@ -224,8 +224,8 @@ def  registerPlayerMatches(playerId,roundId=1, tournamentId=1):
         DB.commit()
                 
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
 
     return   
 
@@ -247,8 +247,8 @@ def registerPlayerTournament(playerId,tournamentId=1):
     
     if count != 0:  # indicates player already in tournament_player
         # tidy up
-        cur.close
-        DB.close
+        cur.close()
+        DB.close()
         
         returnStr = "ERROR - playerId already in tournament, please try again."
         return returnStr
@@ -265,8 +265,8 @@ def registerPlayerTournament(playerId,tournamentId=1):
     registerPlayerMatches(playerId,tournamentId,roundId)
     
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
 
     return returnStr
 
@@ -295,8 +295,8 @@ def registerPlayer(name):
     playerId = cur.fetchone()[0]
     
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
 
     registerPlayerTournament(playerId,tournamentId=1)
 
@@ -328,8 +328,8 @@ def playerStandings(tournamentId=1):
     row = cur.fetchall()
      
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
     
     return row
 
@@ -365,8 +365,8 @@ def reportMatch(winner, loser, tournamentId=1):
     DB.commit()
     
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
     
     return
  
@@ -406,8 +406,8 @@ def swissPairings(tournamentId=1):
             listrow.append(temp)    
                  
     # tidy up
-    cur.close
-    DB.close
+    cur.close()
+    DB.close()
   
     return listrow
     
